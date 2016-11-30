@@ -1,7 +1,8 @@
 #include "IScoreboard.h"
+#include "ObserverPattern.hpp"
 #include <vector>
 
-class Scoreboard : public IScoreboard
+class Scoreboard : public IScoreboard, public Observable
 {
 public:
 	Scoreboard(int, int);

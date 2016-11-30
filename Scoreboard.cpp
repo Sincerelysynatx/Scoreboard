@@ -21,6 +21,7 @@ void Scoreboard::setScore(int competitor, int period, int score)
 		return;
 	}
 	m_scoreboard[competitor][period] = score;
+	notifyObservers();
 }
 
 int Scoreboard::getScore(int competitor, int period)
@@ -50,7 +51,10 @@ void Scoreboard::clearScoreboard()
 {
 	for (int i = 0; i < m_maxCompetitors; i++)
 		for(int j = 0; j < m_maxPeriods; j++)
+		{
 			m_scoreboard[i][j] = 0;
+			notifyObservers();
+		}
 
 }
 
